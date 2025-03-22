@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="CalculateWindChill - if/else detaljer" id="windChillDetailed">
+    <mxGraphModel dx="1150" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Start -->
+        <mxCell id="start" value="Start (CalculateWindChill)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="20" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Input temperatur -->
+        <mxCell id="tempInput" value="Läs in temperatur (°C)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Input vindhastighet -->
+        <mxCell id="windInput" value="Läs in vindhastighet (m/s eller km/h)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="180" width="250" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Fråga om m/s -->
+        <mxCell id="checkMs" value="Har användaren angett vindhastighet i m/s?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="260" width="250" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Omvandla m/s till km/h -->
+        <mxCell id="convert" value="Omvandla vindhastighet till km/h" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="260" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Beräkna windchill -->
+        <mxCell id="calc" value="Beräkna wind chill-faktor" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Första if -->
+        <mxCell id="cond1" value="WindChill &gt; -25?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="440" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Kallt -->
+        <mxCell id="res1" value="Kallt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Andra if -->
+        <mxCell id="cond2" value="-35 ≤ WindChill ≤ -25?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="440" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Mycket kallt -->
+        <mxCell id="res2" value="Mycket kallt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="540" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Tredje if -->
+        <mxCell id="cond3" value="-60 ≤ WindChill &lt; -35?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="440" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Risk för frostskada -->
+        <mxCell id="res3" value="Risk för frostskada" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="540" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Annars: Stor risk -->
+        <mxCell id="res4" value="Stor risk för frostskada" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="540" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Slut -->
+        <mxCell id="end" value="Tillbaka till meny" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="620" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell edge="1" parent="1" source="start" target="tempInput" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="tempInput" target="windInput" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="windInput" target="checkMs" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="checkMs" target="convert" style="endArrow=block;"><mxGeometry relative="1" as="geometry"><mxPoint x="70" y="290" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell edge="1" parent="1" source="checkMs" target="calc" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="convert" target="calc" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="calc" target="cond1" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="cond1" target="res1" style="endArrow=block;"><mxGeometry relative="1" as="geometry"><mxPoint x="100" y="460" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell edge="1" parent="1" source="cond1" target="cond2" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="cond2" target="res2" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="cond2" target="cond3" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="cond3" target="res3" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="cond3" target="res4" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="res1" target="end" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="res2" target="end" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="res3" target="end" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell edge="1" parent="1" source="res4" target="end" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
